@@ -5,7 +5,8 @@
 let card = document.getElementsByClassName('card');
 let cards = [...card];
 
-
+let openedCard = document.getElementsByClassName('open');
+let opened =  [...openedCard];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -39,6 +40,7 @@ for (var i = 0; i < cards.length; i++){
 
  function displayCard (){
     this.classList.add('open', 'show');
+    opened.push(this);
 };
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
