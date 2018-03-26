@@ -36,12 +36,42 @@ function shuffle(array) {
 for (var i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
+    card.addEventListener('click', testMatch)
  };
 
+// Add classes to uncover the card and push it into 'list' of opened
  function displayCard (){
     this.classList.add('open', 'show');
     opened.push(this);
 };
+
+// Compare two cards according the data-name
+function testMatch () {
+	if (opened.length === 2) {
+		(opened[0].dataset.name === opened[1].dataset.name)?(match()):(unmatch());
+	};
+}
+
+
+// If cards match, add class match and remove open+show classes, clear the 'list' of opened
+function match () {
+	opened[0].classList.add('match');
+	opened[1].classList.add('match');
+	opened[0].classList.remove('open', 'show');
+	opened[1].classList.remove('open', 'show');
+	opened = [];
+}
+
+// If cards don't match, add class unmacht, later remove open+show and clear the 'list' of opened
+function unmatch () {
+	opened[0].classList.add('unmatch');
+	opened[1].classList.add('unmatch');
+	setTimeout (function() {
+		opened[0].classList.remove('open', 'show', 'unmatch');
+		opened[1].classList.remove('open', 'show', 'unmatch');
+		opened = [];}
+		,1000);
+}
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
