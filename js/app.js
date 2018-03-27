@@ -13,6 +13,13 @@ let matchedCards = document.getElementsByClassName('match');
 // variable for moves and counting
 let moves = 0;
 let counter = document.getElementById('moves');
+
+// declaring varibles for time counting
+let second = 0, minute = 0, hour = 0;
+let countTime;
+let timer = document.getElementById('timer');
+
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -90,6 +97,25 @@ function endGame () {
 function counting () {
 	moves++;
 	(moves < 2) ? (counter.innerHTML = moves + ' Move') : (counter.innerHTML = moves + ' Moves');
+
+	//if first move is done, then time counting starts
+	if (moves === 1) {time()};
+}
+
+// counting time
+function time(){
+    countTime = setInterval(function(){
+        timer.innerHTML = minute+'mins '+second+'secs';
+        second++;
+        if(second == 60){
+            minute++;
+            second = 0;
+        }
+        if(minute == 60){
+            hour++;
+            minute = 0;
+        }
+    },1000); 
 }
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
