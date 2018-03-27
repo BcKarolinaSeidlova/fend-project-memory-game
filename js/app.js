@@ -76,9 +76,20 @@ function unmatch () {
 // when game ends (all cards match) show modal
 function endGame () {
 	if (matchedCards.length === 16) {
-    //modal();
+    modal();
 	}
 }
+
+// message with final score
+function modal() {
+    myModal.classList.add('show-modal'); //shows the modal
+}
+
+
+
+
+
+
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
