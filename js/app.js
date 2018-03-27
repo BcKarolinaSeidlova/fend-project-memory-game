@@ -20,6 +20,8 @@ let countTime;
 let timer = document.getElementById('timer');
 
 
+
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -94,16 +96,17 @@ function endGame () {
 }
 
 // counting moves
-function counting () {
+function counting() {
 	moves++;
 	(moves < 2) ? (counter.innerHTML = moves + ' Move') : (counter.innerHTML = moves + ' Moves');
 
 	//if first move is done, then time counting starts
 	if (moves === 1) {time()};
+	stars ();
 }
 
 // counting time
-function time(){
+function time() {
     countTime = setInterval(function(){
         timer.innerHTML = minute+'mins '+second+'secs';
         second++;
@@ -116,6 +119,14 @@ function time(){
             minute = 0;
         }
     },1000); 
+}
+
+// Score of stars according to number of moves
+function stars () {
+	if (moves > 11) {document.getElementById('one').classList.remove('fa-star')};
+	if (moves > 17) {document.getElementById('two').classList.remove('fa-star')};
+	if (moves > 23) {document.getElementById('three').classList.remove('fa-star')};
+
 }
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
