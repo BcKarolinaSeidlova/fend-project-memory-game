@@ -9,7 +9,8 @@ let opened =  [...openedCard];
 // list of matched cards
 let matchedCards = document.getElementsByClassName('match');
 
-
+// modal variable
+let myModal = document.getElementById('modal');
 // variable for moves and counting
 let moves = 0;
 let counter = document.getElementById('moves');
@@ -91,8 +92,13 @@ function unmatch () {
 // when game ends (all cards match) show modal
 function endGame () {
 	if (matchedCards.length === 16) {
-    //modal();
+    modal();
 	}
+}
+
+// message with final score
+function modal() {
+    myModal.classList.add('show-modal'); //shows the modal
 }
 
 // counting moves
@@ -128,6 +134,8 @@ function stars () {
 	if (moves > 23) {document.getElementById('three').classList.remove('fa-star')};
 
 }
+
+
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
