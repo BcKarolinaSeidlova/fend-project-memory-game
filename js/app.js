@@ -5,6 +5,9 @@ let cards = [...card];
 // list of opened cards
 let openedCard = document.getElementsByClassName('open');
 let opened =  [...openedCard];
+
+// list of matched cards
+let matchedCards = document.getElementsByClassName('match');
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
