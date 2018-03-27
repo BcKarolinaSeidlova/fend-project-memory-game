@@ -8,6 +8,11 @@ let opened =  [...openedCard];
 
 // list of matched cards
 let matchedCards = document.getElementsByClassName('match');
+
+
+// variable for moves and counting
+let moves = 0;
+let counter = document.getElementById('moves');
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -45,9 +50,10 @@ for (var i = 0; i < cards.length; i++){
     opened.push(this);
 };
 
-// Compare two cards according the data-name
+// Compare two cards according the data-name + moves counting
 function testMatch () {
 	if (opened.length === 2) {
+		counting ();
 		(opened[0].dataset.name === opened[1].dataset.name)?(match()):(unmatch());
 	};
 }
@@ -78,6 +84,12 @@ function endGame () {
 	if (matchedCards.length === 16) {
     //modal();
 	}
+}
+
+// counting moves
+function counting () {
+	moves++;
+	(moves < 2) ? (counter.innerHTML = moves + ' Move') : (counter.innerHTML = moves + ' Moves');
 }
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
