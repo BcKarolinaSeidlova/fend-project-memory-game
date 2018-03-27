@@ -25,7 +25,7 @@
         	<span id="moves"></span>
             <span id="timer"></span>
 
-            <div class="restart">
+            <div class="restart" onclick="newGame()">
         		<i class="fa fa-repeat"></i>
         	</div>
         </section>
@@ -85,7 +85,7 @@
      <div class="container">
         <section class="modal" id="modal">
             <div class="modal-in">
-            <div class="box-right"><span class="close">&times;</span></div>
+            <div class="box-right"><span class="close" onclick="closeModal()">&times;</span></div>
         <div class="box-center">
             <h1> Congratulation! </h1>
 
@@ -95,7 +95,7 @@
             </div>
             <div> It took you <span id="time"></span>
             </div>
-            <div> <button>Play again</button></div>
+            <div> <button onclick="newGame()">Play again</button></div>
         </div>
         </div>
         </section>

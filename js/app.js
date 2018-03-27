@@ -45,6 +45,28 @@ function shuffle(array) {
     return array;
 }
 
+// setting moves, starts and time for the new game, hiding the modal
+function newGame() {
+	// reset card
+
+	cards = shuffle(cards);
+    // removing classes from cards
+    for (var i = 0; i < cards.length; i++){
+    	    cards[i].classList.remove('show', 'open', 'match');
+    }
+	//reset moves
+	moves = 0;
+    counter.innerHTML = moves + ' moves';
+
+    // reset time
+    clearInterval(countTime);
+    second = 0, minute = 0, hour = 0;
+    timer.innerHTML = '0 mins 0secs';
+
+    //closing modal
+    closeModal();
+
+}
 
  // loop to add event listeners to each card
 for (var i = 0; i < cards.length; i++){
@@ -99,6 +121,11 @@ function endGame () {
 // message with final score
 function modal() {
     myModal.classList.add('show-modal'); //shows the modal
+}
+
+// closing modal
+function closeModal ()  {
+    myModal.classList.remove('show-modal');
 }
 
 // counting moves
