@@ -1,10 +1,8 @@
-/*
- * Create a list that holds all of your cards
- */
-
+// list of all cards in the game
 let card = document.getElementsByClassName('card');
 let cards = [...card];
 
+// list of opened cards
 let openedCard = document.getElementsByClassName('open');
 let opened =  [...openedCard];
 /*
@@ -30,13 +28,12 @@ function shuffle(array) {
 }
 
 
-//set up the event listener for a card. If a card is clicked:
-
  // loop to add event listeners to each card
 for (var i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
-    card.addEventListener('click', testMatch)
+    card.addEventListener('click', testMatch);
+    card.addEventListener('click', endGame);
  };
 
 // Add classes to uncover the card and push it into 'list' of opened
@@ -71,6 +68,13 @@ function unmatch () {
 		opened[1].classList.remove('open', 'show', 'unmatch');
 		opened = [];}
 		,1000);
+}
+
+// when game ends (all cards match) show modal
+function endGame () {
+	if (matchedCards.length === 16) {
+    //modal();
+	}
 }
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
