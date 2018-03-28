@@ -9,8 +9,6 @@ let opened =  [...openedCard];
 // list of matched cards
 let matchedCards = document.getElementsByClassName('match');
 
-// modal variable
-let myModal = document.getElementById('modal');
 // variable for moves and counting
 let moves = 0;
 let counter = document.getElementById('moves');
@@ -20,7 +18,11 @@ let second = 0, minute = 0, hour = 0;
 let countTime;
 let timer = document.getElementById('timer');
 
-
+// modal variables
+let myModal = document.getElementById('modal');
+let scoreMoves = document.getElementById('moves-score');
+let scoreStars = document.getElementById('stars-score');
+let scoreTime = document.getElementById('time-score');
 
 
 /*
@@ -118,15 +120,7 @@ function endGame () {
 	}
 }
 
-// message with final score
-function modal() {
-    myModal.classList.add('show-modal'); //shows the modal
-}
 
-// closing modal
-function closeModal ()  {
-    myModal.classList.remove('show-modal');
-}
 
 // counting moves
 function counting() {
@@ -160,6 +154,23 @@ function stars () {
 	if (moves > 17) {document.getElementById('two').classList.remove('fa-star')};
 	if (moves > 23) {document.getElementById('three').classList.remove('fa-star')};
 
+}
+
+// message with final score
+function modal() {
+	clearInterval(countTime);
+	let finalT = timer.innerHTML;
+	let finalM = moves.innerHTML;
+	let finalS = stars();
+	myModal.classList.toggle('show-modal');
+	scoreMoves.innerHTML= moves;
+	scoreStars.innerHTML= finalS;
+	scoreTime.innerHTML=finalT;
+}
+
+// closing modal
+function closeModal ()  {
+    myModal.classList.remove('show-modal');
 }
 
 
