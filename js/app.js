@@ -78,9 +78,9 @@ for (var i = 0; i < cards.length; i++){
     card.addEventListener('click', endGame);
  };
 
-// Add classes to uncover the card and push it into 'list' of opened
+// Add classes to uncover the card and prevent clicking, push it into 'list' of opened
  function displayCard (){
-    this.classList.add('open', 'show');
+    this.classList.add('open', 'show', 'noclick');
     opened.push(this);
 };
 
@@ -88,6 +88,7 @@ for (var i = 0; i < cards.length; i++){
 function testMatch () {
 	if (opened.length === 2) {
 		counting ();
+		stopClick();
 		(opened[0].dataset.name === opened[1].dataset.name)?(match()):(unmatch());
 	};
 }
@@ -97,9 +98,10 @@ function testMatch () {
 function match () {
 	opened[0].classList.add('match');
 	opened[1].classList.add('match');
-	opened[0].classList.remove('open', 'show');
-	opened[1].classList.remove('open', 'show');
+	opened[0].classList.remove('open', 'show', 'noclick');
+	opened[1].classList.remove('open', 'show', 'noclick');
 	opened = [];
+	click();
 }
 
 // If cards don't match, add class unmacht, later remove open+show and clear the 'list' of opened
@@ -107,11 +109,13 @@ function unmatch () {
 	opened[0].classList.add('unmatch');
 	opened[1].classList.add('unmatch');
 	setTimeout (function() {
-		opened[0].classList.remove('open', 'show', 'unmatch');
-		opened[1].classList.remove('open', 'show', 'unmatch');
-		opened = [];}
+		opened[0].classList.remove('open', 'show', 'unmatch', 'noclick');
+		opened[1].classList.remove('open', 'show', 'unmatch', 'noclick');
+		opened = [];
+		click();}
 		,1000);
 }
+
 
 // when game ends (all cards match) show modal
 function endGame () {
@@ -173,6 +177,20 @@ function closeModal ()  {
     myModal.classList.remove('show-modal');
 }
 
+
+// disabling cards to prevent click on next while two cards are open
+function stopClick () {
+    for (let i = 0; i < cards.length; i++){
+    cards[i].classList.add('noclick'); 
+ };
+}
+
+// enabling clicking 
+function click () {
+    for (let i = 0; i < cards.length; i++){
+    cards[i].classList.remove('noclick'); 
+ };
+}
 
  /*  - display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
