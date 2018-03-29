@@ -53,8 +53,8 @@ function newGame() {
 
 	cards = shuffle(cards);
     // removing classes from cards
-    for (var i = 0; i < cards.length; i++){
-    	    cards[i].classList.remove('show', 'open', 'match');
+    for (let i = 0; i < cards.length; i++){
+    	    cards[i].classList.remove('show', 'open', 'match', 'noclick');
     }
 	//reset moves
 	moves = 0;
@@ -98,10 +98,11 @@ function testMatch () {
 function match () {
 	opened[0].classList.add('match');
 	opened[1].classList.add('match');
-	opened[0].classList.remove('open', 'show', 'noclick');
-	opened[1].classList.remove('open', 'show', 'noclick');
+	opened[0].classList.remove('open', 'show');
+	opened[1].classList.remove('open', 'show',);
 	opened = [];
 	click();
+	
 }
 
 // If cards don't match, add class unmacht, later remove open+show and clear the 'list' of opened
@@ -139,7 +140,7 @@ function counting() {
 // counting time
 function time() {
     countTime = setInterval(function(){
-        timer.innerHTML = minute+'mins '+second+'secs';
+        timer.innerHTML = minute+' mins '+second+' secs';
         second++;
         if(second == 60){
             minute++;
@@ -158,16 +159,18 @@ function stars () {
 	if (moves > 17) {document.getElementById('two').classList.remove('fa-star')};
 	if (moves > 23) {document.getElementById('three').classList.remove('fa-star')};
 
+
 }
+
 
 // message with final score
 function modal() {
 	clearInterval(countTime);
 	let finalT = timer.innerHTML;
-	let finalM = moves.innerHTML;
-	let finalS = stars();
-	myModal.classList.toggle('show-modal');
-	scoreMoves.innerHTML= moves;
+	let finalM = counter.innerHTML;
+	let finalS = document.getElementsByClassName('stars').innerHTML;
+	myModal.classList.add('show-modal');
+	scoreMoves.innerHTML= finalM;
 	scoreStars.innerHTML= finalS;
 	scoreTime.innerHTML=finalT;
 }
@@ -200,3 +203,8 @@ function click () {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+
+for (let i = 0; i < cards.length; i++){
+    	    cards[i].classList.remove('show', 'open', 'match');
+    }
