@@ -5,6 +5,7 @@
     <title>Matching Game</title>
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
 </head>
@@ -90,9 +91,12 @@
             <h1> Congratulation! </h1>
 
             <div>
-                Because you did <span id="moves-score"></span>, you gained <span id="stars-score"></span> stars!
-                
+                You did <span id="moves-score"></span>
             </div>
+            <div class="rating">
+                Star rating <span id="stars-score"></span>
+            </div>
+
             <div> It took you <span id="time-score"></span>
             </div>
             <div> <button onclick="newGame()">Play again</button></div>

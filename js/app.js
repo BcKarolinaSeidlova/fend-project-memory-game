@@ -50,16 +50,17 @@ function shuffle(array) {
 // setting moves, starts and time for the new game, hiding the modal
 function newGame() {
 	// reset card
-
 	cards = shuffle(cards);
     // removing classes from cards
     for (let i = 0; i < cards.length; i++){
-    	    cards[i].classList.remove('show', 'open', 'match', 'noclick');
+    	cards[i].classList.remove('show', 'open', 'match', 'noclick');
     }
 	//reset moves
 	moves = 0;
     counter.innerHTML = moves + ' moves';
 
+    // reset stars
+    stars ();
     // reset time
     clearInterval(countTime);
     second = 0, minute = 0, hour = 0;
@@ -71,7 +72,7 @@ function newGame() {
 }
 
  // loop to add event listeners to each card
-for (var i = 0; i < cards.length; i++){
+for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener('click', displayCard);
     card.addEventListener('click', testMatch);
@@ -140,7 +141,7 @@ function counting() {
 // counting time
 function time() {
     countTime = setInterval(function(){
-        timer.innerHTML = minute+' mins '+second+' secs';
+        (minute === 0) ? (timer.innerHTML=second+' secs'): (timer.innerHTML = minute+' mins '+second+' secs');
         second++;
         if(second == 60){
             minute++;
@@ -155,12 +156,15 @@ function time() {
 
 // Score of stars according to number of moves
 function stars () {
-	if (moves > 11) {document.getElementById('one').classList.remove('fa-star')};
-	if (moves > 17) {document.getElementById('two').classList.remove('fa-star')};
-	if (moves > 23) {document.getElementById('three').classList.remove('fa-star')};
-
-
+	if (moves === 0) {document.querySelector('#one').classList.add('fa-star');
+    document.querySelector('#two').classList.add('fa-star');
+    document.querySelector('#three').classList.add('fa-star');}
+	if (moves > 12) {document.querySelector('#one').classList.remove('fa-star')};
+	if (moves > 20) {document.querySelector('#two').classList.remove('fa-star')};
+	if (moves > 35) {document.querySelector('#three').classList.remove('fa-star');
+};
 }
+
 
 
 // message with final score
@@ -168,7 +172,7 @@ function modal() {
 	clearInterval(countTime);
 	let finalT = timer.innerHTML;
 	let finalM = counter.innerHTML;
-	let finalS = document.getElementsByClassName('stars').innerHTML;
+	let finalS = document.querySelector('.stars').innerHTML;
 	myModal.classList.add('show-modal');
 	scoreMoves.innerHTML= finalM;
 	scoreStars.innerHTML= finalS;
@@ -194,17 +198,3 @@ function click () {
     cards[i].classList.remove('noclick'); 
  };
 }
-
- /*  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
-
-for (let i = 0; i < cards.length; i++){
-    	    cards[i].classList.remove('show', 'open', 'match');
-    }
