@@ -1,6 +1,17 @@
 # Memory Game Project
+This project was created by Karolina Seidlova (_me_) as a one of the projects in Udacity nanodegree program. The base of html, css and JavaScript are by Udacity as a staring point.
+The whole javascript part (except shuffle function) and css styles for modal were coded by me.
 
-This is the project at Udacity nanodegree programm (Front-end web developer). It was coded by Karolina Seidlova.
+## Other sourcs
+- **Google fonts**
+	- Coda, Pacifico
+- **Shuffle function**
+    -  from [here](http://stackoverflow.com/a/2450976)
+- **Modal**
+    - edited css from [W3School](https://www.w3schools.com/howto/howto_css_modals.asp)
+- **Animations**
+    -  animations by Daniel Eden
+    -  [link on GitHub](https://github.com/daneden/animate.css)
 
-## How to play
-Memory game contains 16 cards (8 pair of pictures) and the goal is to guess the right position of pictures in as less guesses (moves) as possible.
+## Contact
+In case of questions, don't hesitate to contact me via mail karolinaseidlova@gmail.com
