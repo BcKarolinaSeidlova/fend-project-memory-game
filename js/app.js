@@ -24,7 +24,7 @@ let scoreMoves = document.getElementById('moves-score');
 let scoreStars = document.getElementById('stars-score');
 let scoreTime = document.getElementById('time-score');
 
-
+let deck = document.getElementById('deck-cards');
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -45,16 +45,19 @@ function shuffle(array) {
     }
 
     return array;
-}
+};
 
 // setting moves, starts and time for the new game, hiding the modal
 function newGame() {
-	// reset card
-	cards = shuffle(cards);
-    // removing classes from cards
+    // shuffle cards and clear the deck
+    cards = shuffle(cards);
+    deck.innerHTML = "";
+    // adding shuffled cards to deck and removing classes from cards
     for (let i = 0; i < cards.length; i++){
-    	cards[i].classList.remove('show', 'open', 'match', 'noclick');
+            deck.append(cards[i]);
+        cards[i].classList.remove('show', 'open', 'match');
     }
+
 	//reset moves
 	moves = 0;
     counter.innerHTML = moves + ' moves';
@@ -182,6 +185,7 @@ function modal() {
 // closing modal
 function closeModal ()  {
     myModal.classList.remove('show-modal');
+    newGame();
 }
 
 
@@ -198,3 +202,19 @@ function click () {
     cards[i].classList.remove('noclick'); 
  };
 }
+
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+};
