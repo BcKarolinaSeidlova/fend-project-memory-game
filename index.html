@@ -6,6 +6,10 @@
     <meta name="description" content="">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <!-- animations -->
+    <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -16,76 +20,80 @@
         </header>
 
         <section class="score-panel">
-        	<ul class="stars">
+        	<div>
+            <ul class="stars">
         		<li><i class="fa fa-star" id="one"></i></li>
         		<li><i class="fa fa-star" id="two"></i></li>
         		<li><i class="fa fa-star" id="three"></i></li>
         	</ul>
 
         	<span id="moves"></span>
-            <span id="timer"></span>
+        </div>
+            <div class="timer"> <span id="timer"></span></div>
+            
 
             <div class="restart" onclick="newGame()">
-        		<i class="fa fa-repeat"></i>
+        		<i class="fa fa-repeat"></i> restart game
         	</div>
         </section>
 
         <ul class="deck" id="deck-cards">
-            <li class="card" data-name="diamond">
+            <li class="card animated" data-name="diamond">
                 <i class="fa fa-diamond"></i>
             </li>
-            <li class="card" data-name="plane">
+            <li class="card animated" data-name="plane">
                 <i class="fa fa-paper-plane-o"></i>
             </li>
-            <li class="card" data-name="anchor">
+            <li class="card animated" data-name="anchor">
                 <i class="fa fa-anchor"></i>
             </li>
-            <li class="card" data-name="bolt">
+            <li class="card animated" data-name="bolt">
                 <i class="fa fa-bolt"></i>
             </li>
-            <li class="card" data-name="cube">
+            <li class="card animated" data-name="cube">
                 <i class="fa fa-cube"></i>
             </li>
-            <li class="card" data-name="anchor">
+            <li class="card animated" data-name="anchor">
                 <i class="fa fa-anchor"></i>
             </li>
-            <li class="card" data-name="leaf">
+            <li class="card animated" data-name="leaf">
                 <i class="fa fa-leaf"></i>
             </li>
-            <li class="card" data-name="bicycle">
+            <li class="card animated" data-name="bicycle">
                 <i class="fa fa-bicycle"></i>
             </li>
-            <li class="card" data-name="diamond">
+            <li class="card animated" data-name="diamond">
                 <i class="fa fa-diamond"></i>
             </li>
-            <li class="card" data-name="bomb">
+            <li class="card animated" data-name="bomb">
                 <i class="fa fa-bomb"></i>
             </li>
-            <li class="card" data-name="leaf">
+            <li class="card animated" data-name="leaf">
                 <i class="fa fa-leaf"></i>
             </li>
-            <li class="card" data-name="bomb">
+            <li class="card animated" data-name="bomb">
                 <i class="fa fa-bomb"></i>
             </li>
-            <li class="card" data-name="bolt">
+            <li class="card animated" data-name="bolt">
                 <i class="fa fa-bolt"></i>
             </li>
-            <li class="card" data-name="bicycle">
+            <li class="card animated" data-name="bicycle">
                 <i class="fa fa-bicycle"></i>
             </li>
-            <li class="card" data-name="plane">
+            <li class="card animated" data-name="plane">
                 <i class="fa fa-paper-plane-o"></i>
             </li>
-            <li class="card" data-name="cube">
+            <li class="card animated" data-name="cube">
                 <i class="fa fa-cube"></i>
             </li>
         </ul>
+
     </div>
 
      <div class="container">
         <section class="modal" id="modal">
             <div class="modal-in">
-            <div class="box-right"><span class="close" onclick="closeModal()">&times;</span></div>
+            <div class="box-right"><span class="close" onclick="newGame()">&times;</span></div>
         <div class="box-center">
             <h1> Congratulation! </h1>
 
@@ -93,12 +101,16 @@
                 You did <span id="moves-score"></span>
             </div>
             <div class="rating">
-                Star rating <span id="stars-score"></span>
+                Rating: <span id="stars-score"></span>
             </div>
 
             <div> It took you <span id="time-score"></span>
             </div>
-            <div> <button onclick="newGame()">Play again</button></div>
+            <div> <button class="button-play" onclick="newGame()">Play again</button></div>
+        </div>
+        <div class="box-left">
+            <h3>Did you know...</h3>
+            <p>... the matching game is called "pexeso" in the Czech Republic?</p>
         </div>
         </div>
         </section>
