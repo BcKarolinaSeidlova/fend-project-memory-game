@@ -127,10 +127,6 @@ h2, h3 {
     cursor: pointer;
 }
 
-.fun-fact {
-    display: flex;
-    flex-direction: column;
-}
 /*
 * Modal styling
 */

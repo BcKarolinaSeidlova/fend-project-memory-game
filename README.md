@@ -1,6 +1,6 @@
 # Memory Game Project
 This project was created by Karolina Seidlova (_me_) as a one of the projects in Udacity nanodegree program. The base of html, css and JavaScript are by Udacity as a staring point.
-The whole javascript part (except shuffle function) and css styles for modal were coded by me.
+The whole javascript part and css styles for modal were coded by me.
 
 ## Other sourcs
 - **Google fonts**

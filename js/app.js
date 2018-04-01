@@ -166,12 +166,9 @@ function time() {
 function stars () {
 	if (moves === 0) {document.querySelector('#one').classList.add('fa-star');
     document.querySelector('#two').classList.add('fa-star');
-    document.querySelector('#three').classList.add('fa-star');
 }
-	if (moves > 12) {document.querySelector('#one').classList.remove('fa-star')};
-	if (moves > 20) {document.querySelector('#two').classList.remove('fa-star')};
-	if (moves > 35) {document.querySelector('#three').classList.remove('fa-star');
-};
+	if (moves > 15) {document.querySelector('#one').classList.remove('fa-star')};
+	if (moves > 30) {document.querySelector('#two').classList.remove('fa-star')};
 };
 
 // message with final score
@@ -184,7 +181,6 @@ function modal() {
 	scoreMoves.innerHTML= finalM;
 	scoreStars.innerHTML= finalS;
 	scoreTime.innerHTML=finalT;
-    if (moves > 35) {scoreStars.innerHTML= finalS + ' no stars, play again?';}
 }
 
 // closing modal
