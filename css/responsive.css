@@ -1,0 +1,31 @@
+@media screen and (max-width: 480px) {
+	h1, h2 {
+		font-size: 22px;
+	}
+
+	.score-panel {
+		font-size: 15px;
+	}
+}
+@media screen and (max-width: 659px) {
+	.deck {
+		width: 100vw;
+		margin: 2px;
+	}
+
+	.card {
+		margin: 5px;
+	}
+
+	.score-panel {
+		width: 90vw;
+	}
+
+	footer {
+		margin-top: 20px;
+	}
+
+}
+
+
+
