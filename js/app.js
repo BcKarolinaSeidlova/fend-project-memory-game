@@ -38,8 +38,11 @@ function newGame() {
     // adding shuffled cards to deck and removing classes from cards
     for (let i = 0; i < cards.length; i++){
             deck.append(cards[i]);
-        cards[i].classList.remove('show', 'open', 'match', 'flipInY', 'swing', 'jello');
+        cards[i].classList.remove('show', 'open', 'match', 'noclick', 'flipInY', 'swing', 'jello');
     }
+
+    //reset 'list' of opened cards
+    opened = [];
 
 	//reset moves
 	moves = 0;
