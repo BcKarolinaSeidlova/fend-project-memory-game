@@ -27,5 +27,12 @@
 
 }
 
+@media screen and (min-height: 720px) {
+	footer {
+		margin-top: 20px;
+		position: fixed;
+		bottom: 0;
+	}
+}
 
 
